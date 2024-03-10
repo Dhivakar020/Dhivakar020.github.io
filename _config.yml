@@ -76,7 +76,7 @@ theme_mode: # [light | dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:https://tvobsessive.com/wp-content/uploads/2018/06/true-detective-season-1-logo-1500x1000-1.jpg
+avatar: https://tvobsessive.com/wp-content/uploads/2018/06/true-detective-season-1-logo-1500x1000-1.jpg
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
