@@ -1,5 +1,5 @@
 ---
-title: "Browsers are weird"
+title: "Browsers Are Weird"
 date: 2024-11-27 10:00:00 +0000
 categories: Browsers-are-weird
 tags: Browsers, Vulnerabilities
@@ -18,7 +18,7 @@ excerpt: "The weird history of browsers that led to security problems"
 Traditional software are usually developed with a fixed set of features defined by the client or the software manufacturer. For instance, consider software like Microsoft Excel. One can trace the steps beginning with conceptualization through all stages of execution and developments and deployment. Once completed, a specific group of customers purchases the software for their personal use. With Excel, people use a spreadsheet to store data-a very dependent variable that works on an individual's specific needs but has the same table-like structure. The whole point i am trying to make here is that traditional software like "Excel" were used locally for personal use.
 There is no such thing as "Sharing" in here.
 
-But, in the case of browsers (as a software), they are used to access a common space known as internet. And then comes the major challenge. Contrary to the traditional software approach, various browser vendors gave unique interfaces, which made use of different underlying technologies. The problem here is that different browsers use various technologies but to access the common space with its own integrity. For example, Internet Explorer introduced JavaScript, which at that time was not there in other browsers. The real problem arose from the lack of standardization; Every vendor competed to introduce new features in their browsers to gain market share. There was no unified standard that guided the development of browsers in the early stages.
+But, in the case of browsers (as a software), they are used to access a common space known as internet. And then comes the major challenge. Contrary to the traditional software approach, various browser vendors gave unique interfaces, which made use of different underlying technologies. The problem here is that different browsers use various technologies but to access the common space with its own integrity. For example, Netscape Navigator 2.0 introduced JavaScript in December 1995, which at that time was not there in other browsers. The real problem arose from the lack of standardization; Every vendor competed to introduce new features in their browsers to gain market share. There was no unified standard that guided the development of browsers in the early stages.
 
 The Computer History Museum encapsulates this dynamic perfectly:
 
