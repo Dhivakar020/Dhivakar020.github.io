@@ -54,18 +54,19 @@ Refer [SoK: SSL and HTTPS:](https://www.ieee-security.org/TC/SP2013/papers/4977a
 
 ## Modern HTTPS & Continued Risks (2000s - Present),
 
-1. HTTPS Adoption
+#### HTTPS Adoption
 
 - Major browsers started enforcing HTTPS on websites. Google Chrome and Mozilla Firefox labeled non-HTTPS sites "Not Secure" to pressure users into adopting encryption.
 - The HSTS header, which was first seen in 2009, would enable websites to enforce https by default and prevent some of the MITM attacks by the attackers.
 
-2. Still Vulnerable to Advanced MITM Attacks,
-   Even though HTTPS is now more widely implemented, sophisticated forms of MITM attacks are still feasible:
+#### Still Vulnerable to Advanced MITM Attacks,
+
+Even though HTTPS is now more widely implemented, sophisticated forms of MITM attacks are still feasible:
 
 - Certificate Impersonation: An attacker could use a compromised CA or issue rogue certificates for websites so that he could masquerade as secure websites and intercept encrypted traffic.
 - SSL/TLS Weaknesses: Even the latest versions of SSL/TLS have been found vulnerable periodically: for example, Heartbleed (2014), which was a vulnerability used for stealing private keys from or extracting plaintext data from vulnerable servers.
 
-  3.. Preventative Features in Browsers to Avoid MITM Attack
+#### Preventative Features in Browsers to Avoid MITM Attack
 
 - The modern versions of browsers rely on certificates pining and public keys pinning. The server is legitimated to make such attack even more difficult, almost impossible.
 - Content Security Policy (CSP) headers and other more advanced web security features assist in defending against such attacks as script injection, which might be deployed in MITM scenarios.
