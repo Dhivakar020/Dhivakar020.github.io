@@ -46,9 +46,7 @@ Note:
 
 #### Buyer and Seller Process,
 
-$$
-B ≙ ord.(prod̄ | inv̄.pay)
-$$
+`B ≙ ord.(prod̄ | inv̄.pay)`
 
 This expression describes the buyer’s behavior:
 
