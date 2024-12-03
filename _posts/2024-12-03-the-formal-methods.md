@@ -67,3 +67,52 @@ This expression describes the seller’s behavior:
 2. **`inv`**: The seller sends an invoice.
 3. **`paȳ`**: The seller waits for payment.
 4. **`prod`**: The seller delivers the product.
+
+### **Key Steps in the Interaction:**
+
+1. **Order Placement and Receipt:** The buyer places the order (`ord`), and the seller receives it (`ord̅`):
+   $$
+   B | S → τ → (prod̄ | inv̄.pay) | inv.paȳ.prod
+   $$
+2. **Invoice and Payment:**
+
+- The seller sends the invoice (`inv`), and the buyer receives it (`inv̅`).
+- The buyer sends payment (`pay`), and the seller receives it (`pay̅`):
+  $$
+  τ → (prod | paȳ) | paȳ.prod
+  $$
+  $$
+  τ → (prod̄ | 0) | prod
+  $$
+
+3. **Product Delivery:**
+
+- The seller delivers the product (`prod`), and the buyer receives it (`prod̅`):
+  $$
+  τ → (0 | 0) | 0
+  $$
+
+#### Model - 1 ,
+
+![Model 1](/assets/img/formal_methods/model_1.png)
+
+After introducing recursion,
+
+{::nomarkdown}
+$$ S′ ≙ rec X. ord̄.inv.paȳ.prod.X $$
+{:/}
+
+- The seller performs the actions `ord` (receive an order), `inv` (send an invoice), `pay` (process payment), and `prod` (deliver the product).
+- After completing these actions, the process `X` repeats itself indefinitely.
+
+- **Strengths**:
+
+  - **Sequential execution** ensures that every step (order, invoice, payment, product delivery) must complete before the process goes recursion.
+  - This strict ordering minimizes **race conditions** because actions are dependent on the successful completion of the previous step.
+  - Easier to audit for **security-business logic flaws** since the workflow is linear and predictable.
+
+- **Weaknesses**:
+  - **No concurrency**: If one part of the system fails (e.g., payment service), the whole process stalls.
+  - **Not robust to partial failures**: Recovery or retries for individual steps are not naturally supported.
+
+#### Model - 2 ,

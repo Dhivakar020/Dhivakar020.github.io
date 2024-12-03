@@ -2,7 +2,7 @@
 title: "Science in Software Development"
 date: 2024-10-06 10:00:00 +0000
 categories: arcipilago
-tags: arcipilago
+tags: [arcipilago]
 excerpt: "Asking the write questions as a software developer."
 ---
 
