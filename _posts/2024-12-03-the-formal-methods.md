@@ -46,7 +46,9 @@ Note:
 
 #### Buyer and Seller Process,
 
-`B ≙ ord.(prod̄ | inv̄.pay)`
+```math
+B ≙ ord.(prod̄ | inv̄.pay)
+```
 
 This expression describes the buyer’s behavior:
 
@@ -55,9 +57,9 @@ This expression describes the buyer’s behavior:
    - Receiving the product (`prod`).
    - Receiving an invoice (`inv`) and then making a payment (`pay`).
 
-$$
+```
 S ≙ ord̄.inv.paȳ.prod
-$$
+```
 
 This expression describes the seller’s behavior:
 
@@ -69,26 +71,26 @@ This expression describes the seller’s behavior:
 ### **Key Steps in the Interaction:**
 
 1. **Order Placement and Receipt:** The buyer places the order (`ord`), and the seller receives it (`ord̅`):
-   $$
+   ```
    B | S → τ → (prod̄ | inv̄.pay) | inv.paȳ.prod
-   $$
+   ```
 2. **Invoice and Payment:**
 
 - The seller sends the invoice (`inv`), and the buyer receives it (`inv̅`).
 - The buyer sends payment (`pay`), and the seller receives it (`pay̅`):
-  $$
+  ```
   τ → (prod | paȳ) | paȳ.prod
-  $$
-  $$
+  ```
+  ```
   τ → (prod̄ | 0) | prod
-  $$
+  ```
 
 3. **Product Delivery:**
 
 - The seller delivers the product (`prod`), and the buyer receives it (`prod̅`):
-  $$
+  ```
   τ → (0 | 0) | 0
-  $$
+  ```
 
 #### Model - 1 ,
 
@@ -96,9 +98,9 @@ This expression describes the seller’s behavior:
 
 After introducing recursion,
 
-{::nomarkdown}
-$$ S′ ≙ rec X. ord̄.inv.paȳ.prod.X $$
-{:/}
+```
+ S′ ≙ rec X. ord̄.inv.paȳ.prod.X
+```
 
 - The seller performs the actions `ord` (receive an order), `inv` (send an invoice), `pay` (process payment), and `prod` (deliver the product).
 - After completing these actions, the process `X` repeats itself indefinitely.
@@ -119,9 +121,9 @@ $$ S′ ≙ rec X. ord̄.inv.paȳ.prod.X $$
 
 After introducing recursion,
 
-$$
+```
 S′′ = rec X. (ord̄.inv.paȳ.prod | X)
-$$
+```
 
 Here, the process is **restructured** slightly but still describes the same behavior. The seller is now defined as:
 
@@ -146,9 +148,9 @@ This structure introduces the possibility of **overlapping or pipelined executio
 
 After introducing recursion,
 
-$$
+```
 S′′′ = rec X. ord̄.(inv.paȳ.prod | X)
-$$
+```
 
 This version refines the process further. It says:
 

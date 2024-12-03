@@ -2,7 +2,7 @@
 title: "Browsers Are Weird"
 date: 2024-11-27 10:00:00 +0000
 categories: Browsers-are-weird
-tags: [browsers, Vulnerabilities]
+tags: [browsers, vulnerabilities]
 excerpt: "The weird history of browsers that led to security problems"
 ---
 
