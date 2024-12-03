@@ -46,9 +46,9 @@ Note:
 
 #### Buyer and Seller Process,
 
-```math
+$$
 B ≙ ord.(prod̄ | inv̄.pay)
-```
+$$
 
 This expression describes the buyer’s behavior:
 

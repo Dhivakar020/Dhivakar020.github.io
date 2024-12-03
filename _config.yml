@@ -15,7 +15,7 @@ timezone:
 # ↓ --------------------------
 
 title: Dhivakar # the main title
-
+math: true
 tagline: R2 Logs # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
