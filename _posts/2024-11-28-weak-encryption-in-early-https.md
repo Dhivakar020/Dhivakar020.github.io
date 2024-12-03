@@ -2,7 +2,7 @@
 title: "HTTPS: When ‘S’ Stood for ‘Sorta Secure’"
 date: 2024-11-28 10:00:00 +0000
 categories: Browsers-are-weird
-tags: Browsers, Vulnerabilities, Cryptography
+tags: [browsers, vulnerabilities, cryptography]
 excerpt: "Weak Encryption in Early HTTPS"
 ---
 
