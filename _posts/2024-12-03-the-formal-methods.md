@@ -116,3 +116,67 @@ $$ S′ ≙ rec X. ord̄.inv.paȳ.prod.X $$
   - **Not robust to partial failures**: Recovery or retries for individual steps are not naturally supported.
 
 #### Model - 2 ,
+
+![Model 2](/assets/img/formal_methods/model_2.png)
+
+After introducing recursion,
+
+$$
+S′′ = rec X. (ord̄.inv.paȳ.prod | X)
+$$
+
+Here, the process is **restructured** slightly but still describes the same behavior. The seller is now defined as:
+
+- Handling the sequence `ord.inv.pay.prod` **in parallel** with the recursive process `X` (denoted by `| X`).
+- This means the seller can potentially handle multiple orders concurrently, as the recursive part (`X`) runs in parallel with each instance of the main sequence.
+
+This structure introduces the possibility of **overlapping or pipelined executions**, where new orders may begin processing while previous ones are still completing.
+
+- **Strengths**:
+
+  - Allows **concurrent execution** of the entire sequence with the recursive process, increasing throughput.
+  - More resilient to failures in one interaction since others can continue running independently.
+  - Suitable for high-volume systems where multiple buyer-seller transactions occur in parallel.
+
+- **Weaknesses**:
+  - **Concurrency risks**: Without careful synchronization, this definition can lead to race conditions. For example, multiple buyers might try to place orders simultaneously without properly locking shared resources.
+  - Increased complexity in ensuring **security** (e.g., ensuring that no overlapping processes lead to data corruption or unauthorized actions).
+
+#### Model - 3 ,
+
+![Model 3](/assets/img/formal_methods/model_3.png)
+
+After introducing recursion,
+
+$$
+S′′′ = rec X. ord̄.(inv.paȳ.prod | X)
+$$
+
+This version refines the process further. It says:
+
+- The seller **always starts by receiving an order** (`ord`).
+- After receiving the order, the seller concurrently:
+  1. Completes the sequence `inv.pay.prod` (sending an invoice, processing payment, delivering the product).
+  2. Restarts the recursive process `X`, which begins waiting for the next order.
+
+This version makes it explicit that the action `ord` (order reception) must occur **before** any new recursive instance of `X` begins. This prevents multiple new orders from overlapping before the seller has completed the current one.
+
+- **Strengths**:
+
+  - Balances **sequentiality** and **concurrency**: The `ord` (order) action is completed first, ensuring the process starts in a controlled manner. Subsequent steps (`inv.pay.prod`) execute concurrently, allowing partial parallelism.
+  - Provides a more **resilient architecture** by separating the "start" action from subsequent interactions.
+  - More robust to **failures** because the critical first step (`ord`) is isolated, reducing the risk of cascading failures.
+  - Easier to implement **transactional guarantees** (e.g., only move forward if the order placement succeeds).
+
+- **Weaknesses**:
+  - Slightly more complex to implement than S′, as it involves concurrency handling for the remaining steps.
+
+## The best model,
+
+### **Best Option: S′′′**
+
+S′′′ offers the best balance for a robust buyer-seller application because:
+
+1. It ensures the critical **order action** is completed in isolation, reducing security and logic flaws.
+2. Allows **partial concurrency** for subsequent steps, improving system performance without sacrificing control.
+3. Is more **resilient to failures** because failures in concurrent actions (e.g., payment processing) do not affect the initial order placement.
